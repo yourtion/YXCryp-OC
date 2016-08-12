@@ -8,8 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		CB86C6841D5E12240005ACCC /* YXCryp.h in Headers */ = {isa = PBXBuildFile; fileRef = CB86C6831D5E12240005ACCC /* YXCryp.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CB86C68B1D5E12250005ACCC /* YXCryp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB86C6801D5E12240005ACCC /* YXCryp.framework */; };
+		CB86C68B1D5E12250005ACCC /* YXCryp_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB86C6801D5E12240005ACCC /* YXCryp_iOS.framework */; };
 		CB86C6901D5E12250005ACCC /* YXCrypTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CB86C68F1D5E12250005ACCC /* YXCrypTests.m */; };
+		CB86C69E1D5E12420005ACCC /* YXCryp.h in Headers */ = {isa = PBXBuildFile; fileRef = CB86C6831D5E12240005ACCC /* YXCryp.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CB86C6A91D5E125B0005ACCC /* YXCrypTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CB86C68F1D5E12250005ACCC /* YXCrypTests.m */; };
+		CB86C6AB1D5E125B0005ACCC /* YXCryp_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB86C6801D5E12240005ACCC /* YXCryp_iOS.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -20,15 +23,24 @@
 			remoteGlobalIDString = CB86C67F1D5E12240005ACCC;
 			remoteInfo = YXCryp;
 		};
+		CB86C6A71D5E125B0005ACCC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CB86C6771D5E12240005ACCC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CB86C67F1D5E12240005ACCC;
+			remoteInfo = YXCryp;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		CB86C6801D5E12240005ACCC /* YXCryp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = YXCryp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB86C6801D5E12240005ACCC /* YXCryp_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = YXCryp_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB86C6831D5E12240005ACCC /* YXCryp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YXCryp.h; sourceTree = "<group>"; };
 		CB86C6851D5E12240005ACCC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CB86C68A1D5E12250005ACCC /* YXCrypTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YXCrypTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB86C68A1D5E12250005ACCC /* YXCrypTests_iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YXCrypTests_iOS.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB86C68F1D5E12250005ACCC /* YXCrypTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YXCrypTests.m; sourceTree = "<group>"; };
 		CB86C6911D5E12250005ACCC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CB86C6A31D5E12420005ACCC /* YXCryp_OSX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = YXCryp_OSX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB86C6B01D5E125B0005ACCC /* YXCrypTests_OSX.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YXCrypTests_OSX.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,7 +55,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CB86C68B1D5E12250005ACCC /* YXCryp.framework in Frameworks */,
+				CB86C68B1D5E12250005ACCC /* YXCryp_iOS.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CB86C69C1D5E12420005ACCC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CB86C6AA1D5E125B0005ACCC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CB86C6AB1D5E125B0005ACCC /* YXCryp_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,8 +89,10 @@
 		CB86C6811D5E12240005ACCC /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CB86C6801D5E12240005ACCC /* YXCryp.framework */,
-				CB86C68A1D5E12250005ACCC /* YXCrypTests.xctest */,
+				CB86C6801D5E12240005ACCC /* YXCryp_iOS.framework */,
+				CB86C68A1D5E12250005ACCC /* YXCrypTests_iOS.xctest */,
+				CB86C6A31D5E12420005ACCC /* YXCryp_OSX.framework */,
+				CB86C6B01D5E125B0005ACCC /* YXCrypTests_OSX.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -97,12 +126,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CB86C69D1D5E12420005ACCC /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CB86C69E1D5E12420005ACCC /* YXCryp.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		CB86C67F1D5E12240005ACCC /* YXCryp */ = {
+		CB86C67F1D5E12240005ACCC /* YXCryp_iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CB86C6941D5E12250005ACCC /* Build configuration list for PBXNativeTarget "YXCryp" */;
+			buildConfigurationList = CB86C6941D5E12250005ACCC /* Build configuration list for PBXNativeTarget "YXCryp_iOS" */;
 			buildPhases = (
 				CB86C67B1D5E12240005ACCC /* Sources */,
 				CB86C67C1D5E12240005ACCC /* Frameworks */,
@@ -113,14 +150,14 @@
 			);
 			dependencies = (
 			);
-			name = YXCryp;
+			name = YXCryp_iOS;
 			productName = YXCryp;
-			productReference = CB86C6801D5E12240005ACCC /* YXCryp.framework */;
+			productReference = CB86C6801D5E12240005ACCC /* YXCryp_iOS.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		CB86C6891D5E12250005ACCC /* YXCrypTests */ = {
+		CB86C6891D5E12250005ACCC /* YXCrypTests_iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CB86C6971D5E12250005ACCC /* Build configuration list for PBXNativeTarget "YXCrypTests" */;
+			buildConfigurationList = CB86C6971D5E12250005ACCC /* Build configuration list for PBXNativeTarget "YXCrypTests_iOS" */;
 			buildPhases = (
 				CB86C6861D5E12250005ACCC /* Sources */,
 				CB86C6871D5E12250005ACCC /* Frameworks */,
@@ -131,9 +168,45 @@
 			dependencies = (
 				CB86C68D1D5E12250005ACCC /* PBXTargetDependency */,
 			);
-			name = YXCrypTests;
+			name = YXCrypTests_iOS;
 			productName = YXCrypTests;
-			productReference = CB86C68A1D5E12250005ACCC /* YXCrypTests.xctest */;
+			productReference = CB86C68A1D5E12250005ACCC /* YXCrypTests_iOS.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		CB86C69A1D5E12420005ACCC /* YXCryp_OSX */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CB86C6A01D5E12420005ACCC /* Build configuration list for PBXNativeTarget "YXCryp_OSX" */;
+			buildPhases = (
+				CB86C69B1D5E12420005ACCC /* Sources */,
+				CB86C69C1D5E12420005ACCC /* Frameworks */,
+				CB86C69D1D5E12420005ACCC /* Headers */,
+				CB86C69F1D5E12420005ACCC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = YXCryp_OSX;
+			productName = YXCryp;
+			productReference = CB86C6A31D5E12420005ACCC /* YXCryp_OSX.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		CB86C6A51D5E125B0005ACCC /* YXCrypTests_OSX */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CB86C6AD1D5E125B0005ACCC /* Build configuration list for PBXNativeTarget "YXCrypTests_OSX" */;
+			buildPhases = (
+				CB86C6A81D5E125B0005ACCC /* Sources */,
+				CB86C6AA1D5E125B0005ACCC /* Frameworks */,
+				CB86C6AC1D5E125B0005ACCC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CB86C6A61D5E125B0005ACCC /* PBXTargetDependency */,
+			);
+			name = YXCrypTests_OSX;
+			productName = YXCrypTests;
+			productReference = CB86C6B01D5E125B0005ACCC /* YXCrypTests_OSX.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -165,8 +238,10 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				CB86C67F1D5E12240005ACCC /* YXCryp */,
-				CB86C6891D5E12250005ACCC /* YXCrypTests */,
+				CB86C67F1D5E12240005ACCC /* YXCryp_iOS */,
+				CB86C69A1D5E12420005ACCC /* YXCryp_OSX */,
+				CB86C6891D5E12250005ACCC /* YXCrypTests_iOS */,
+				CB86C6A51D5E125B0005ACCC /* YXCrypTests_OSX */,
 			);
 		};
 /* End PBXProject section */
@@ -180,6 +255,20 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		CB86C6881D5E12250005ACCC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CB86C69F1D5E12420005ACCC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CB86C6AC1D5E125B0005ACCC /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -204,13 +293,33 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CB86C69B1D5E12420005ACCC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CB86C6A81D5E125B0005ACCC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CB86C6A91D5E125B0005ACCC /* YXCrypTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
 		CB86C68D1D5E12250005ACCC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = CB86C67F1D5E12240005ACCC /* YXCryp */;
+			target = CB86C67F1D5E12240005ACCC /* YXCryp_iOS */;
 			targetProxy = CB86C68C1D5E12250005ACCC /* PBXContainerItemProxy */;
+		};
+		CB86C6A61D5E125B0005ACCC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CB86C67F1D5E12240005ACCC /* YXCryp_iOS */;
+			targetProxy = CB86C6A71D5E125B0005ACCC /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -314,6 +423,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = YXCryp/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yourtion.YXCryp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -330,6 +440,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = YXCryp/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yourtion.YXCryp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -357,6 +468,62 @@
 			};
 			name = Release;
 		};
+		CB86C6A11D5E12420005ACCC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = YXCryp/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yourtion.YXCryp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx10.11;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		CB86C6A21D5E12420005ACCC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = YXCryp/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yourtion.YXCryp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx10.11;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		CB86C6AE1D5E125B0005ACCC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = YXCrypTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yourtion.YXCrypTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		CB86C6AF1D5E125B0005ACCC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = YXCrypTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yourtion.YXCrypTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -369,7 +536,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CB86C6941D5E12250005ACCC /* Build configuration list for PBXNativeTarget "YXCryp" */ = {
+		CB86C6941D5E12250005ACCC /* Build configuration list for PBXNativeTarget "YXCryp_iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CB86C6951D5E12250005ACCC /* Debug */,
@@ -377,13 +544,31 @@
 			);
 			defaultConfigurationIsVisible = 0;
 		};
-		CB86C6971D5E12250005ACCC /* Build configuration list for PBXNativeTarget "YXCrypTests" */ = {
+		CB86C6971D5E12250005ACCC /* Build configuration list for PBXNativeTarget "YXCrypTests_iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CB86C6981D5E12250005ACCC /* Debug */,
 				CB86C6991D5E12250005ACCC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+		};
+		CB86C6A01D5E12420005ACCC /* Build configuration list for PBXNativeTarget "YXCryp_OSX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CB86C6A11D5E12420005ACCC /* Debug */,
+				CB86C6A21D5E12420005ACCC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CB86C6AD1D5E125B0005ACCC /* Build configuration list for PBXNativeTarget "YXCrypTests_OSX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CB86C6AE1D5E125B0005ACCC /* Debug */,
+				CB86C6AF1D5E125B0005ACCC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
