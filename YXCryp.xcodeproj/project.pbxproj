@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CB5EAAE51D6C3FDA00BD8164 /* YXCryp.m in Sources */ = {isa = PBXBuildFile; fileRef = CB5EAAE21D6C3FDA00BD8164 /* YXCryp.m */; };
+		CB5EAAE61D6C3FDA00BD8164 /* YXCryp.m in Sources */ = {isa = PBXBuildFile; fileRef = CB5EAAE21D6C3FDA00BD8164 /* YXCryp.m */; };
 		CB86C6841D5E12240005ACCC /* YXCryp.h in Headers */ = {isa = PBXBuildFile; fileRef = CB86C6831D5E12240005ACCC /* YXCryp.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CB86C68B1D5E12250005ACCC /* YXCryp_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB86C6801D5E12240005ACCC /* YXCryp_iOS.framework */; };
 		CB86C6901D5E12250005ACCC /* YXCrypTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CB86C68F1D5E12250005ACCC /* YXCrypTests.m */; };
@@ -33,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CB5EAAE21D6C3FDA00BD8164 /* YXCryp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YXCryp.m; sourceTree = "<group>"; };
 		CB86C6801D5E12240005ACCC /* YXCryp_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = YXCryp_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB86C6831D5E12240005ACCC /* YXCryp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YXCryp.h; sourceTree = "<group>"; };
 		CB86C6851D5E12240005ACCC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -102,6 +105,7 @@
 			children = (
 				CB86C6831D5E12240005ACCC /* YXCryp.h */,
 				CB86C6851D5E12240005ACCC /* Info.plist */,
+				CB5EAAE21D6C3FDA00BD8164 /* YXCryp.m */,
 			);
 			path = YXCryp;
 			sourceTree = "<group>";
@@ -282,6 +286,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB5EAAE51D6C3FDA00BD8164 /* YXCryp.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,6 +302,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB5EAAE61D6C3FDA00BD8164 /* YXCryp.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -543,6 +549,7 @@
 				CB86C6961D5E12250005ACCC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CB86C6971D5E12250005ACCC /* Build configuration list for PBXNativeTarget "YXCrypTests_iOS" */ = {
 			isa = XCConfigurationList;
@@ -551,6 +558,7 @@
 				CB86C6991D5E12250005ACCC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CB86C6A01D5E12420005ACCC /* Build configuration list for PBXNativeTarget "YXCryp_OSX" */ = {
 			isa = XCConfigurationList;
