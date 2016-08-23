@@ -20,14 +20,14 @@ static char YXCbase64EncodingTable[64] = {
 
 static char YXCbase64[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
 
-+ (NSData *)encryptData:(NSData *)data WithKey:(NSString *)key {
++ (NSData *)encryptData:(NSData *)data AES256WithKey:(NSString *)key {
     NSData *keyData = [YXCryp sha256HashFromData:[key dataUsingEncoding:NSUTF8StringEncoding]];
-    return [YXCryp _encryptData:data WithKeyData:keyData];
+    return [YXCryp _encryptData:data AES256WithKeyData:keyData];
 }
 
-+ (NSData *)decryptData:(NSData *)data WithKey:(NSString *)key {
++ (NSData *)decryptData:(NSData *)data AES256WithKey:(NSString *)key {
     NSData *keyData = [YXCryp sha256HashFromData:[key dataUsingEncoding:NSUTF8StringEncoding]];
-    return [YXCryp _decryptData:data WithKeyData:keyData];
+    return [YXCryp _decryptData:data AES256WithKeyData:keyData];
 }
 
 + (NSData *)_runCryptor:(CCCryptorRef)cryptor withData:(NSData *)data result:(CCCryptorStatus *)status {
@@ -52,7 +52,7 @@ static char YXCbase64[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0
     return ([NSData dataWithBytesNoCopy:buf length:bytesTotal]);
 }
 
-+ (NSData *)_encryptData:(NSData *)data WithKeyData:(NSData *)key {
++ (NSData *)_encryptData:(NSData *)data AES256WithKeyData:(NSData *)key {
     CCCryptorStatus status = kCCSuccess;
     CCCryptorRef cryptor = NULL;
     CCCryptorStatus *error;
@@ -86,7 +86,7 @@ static char YXCbase64[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0
     return nil;
 }
 
-+ (NSData *)_decryptData:(NSData *)data WithKeyData:(NSData *)key{
++ (NSData *)_decryptData:(NSData *)data AES256WithKeyData:(NSData *)key{
     CCCryptorStatus status = kCCSuccess;
     CCCryptorRef cryptor = NULL;
     CCCryptorStatus * error;
@@ -117,6 +117,20 @@ static char YXCbase64[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0
     return result;
 }
 
++ (NSData *)sha256HashFromData:(NSData *)data {
+    unsigned char hash[CC_SHA256_DIGEST_LENGTH];
+    (void) CC_SHA256( [data bytes], (CC_LONG)[data length], hash );
+    return ( [NSData dataWithBytes: hash length: CC_SHA256_DIGEST_LENGTH] );
+}
+
++ (NSData *)sha1HashFromData:(NSData *)data {
+    //使用对应的CC_SHA1,CC_SHA256,CC_SHA384,CC_SHA512的长度分别是20,32,48,64
+    unsigned char hash[CC_SHA1_DIGEST_LENGTH];
+    //使用对应的CC_SHA256,CC_SHA384,CC_SHA512
+    (void) CC_SHA1([data bytes], (CC_LONG)[data length], hash);
+    return ( [NSData dataWithBytes: hash length: CC_SHA1_DIGEST_LENGTH] );
+}
+
 + (NSString *)byteToStringFromData:(NSData *)data  {
     Byte *plainTextByte = (Byte *)[data bytes];
     NSString *hexStr=@"";
@@ -129,6 +143,42 @@ static char YXCbase64[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0
         }
     }
     return hexStr;
+}
+
++ (NSData *)stringToByteFromString:(NSString *)string {
+    NSString *hexString=[[string uppercaseString] stringByReplacingOccurrencesOfString:@" " withString:@""];
+    if ([hexString length]%2!=0) {
+        return nil;
+    }
+    Byte tempbyt[1]={0};
+    NSMutableData* bytes=[NSMutableData data];
+    for(int i=0;i<[hexString length];i++) {
+        unichar hex_char1 = [hexString characterAtIndex:i]; ////两位16进制数中的第一位(高位*16)
+        int int_ch1;
+        if(hex_char1 >= '0' && hex_char1 <='9') {
+            int_ch1 = (hex_char1-48)*16;   //// 0 的Ascll - 48
+        } else if(hex_char1 >= 'A' && hex_char1 <='F') {
+            int_ch1 = (hex_char1-55)*16; //// A 的Ascll - 65
+        } else {
+            return nil;
+        }
+        
+        i++;
+        
+        unichar hex_char2 = [hexString characterAtIndex:i]; ///两位16进制数中的第二位(低位)
+        int int_ch2;
+        if(hex_char2 >= '0' && hex_char2 <='9') {
+            int_ch2 = (hex_char2-48); //// 0 的Ascll - 48
+        } else if(hex_char2 >= 'A' && hex_char2 <='F') {
+            int_ch2 = hex_char2-55; //// A 的Ascll - 65
+        } else {
+            return nil;
+        }
+        
+        tempbyt[0] = int_ch1+int_ch2;  ///将转化后的数放入Byte数组里
+        [bytes appendBytes:tempbyt length:1];
+    }
+    return bytes;
 }
 
 + (NSString *)base64StringFromData:(NSData *)data {
@@ -193,57 +243,6 @@ static char YXCbase64[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0
         }
     }
     return result;
-}
-
-+ (NSData *)sha256HashFromData:(NSData *)data {
-    unsigned char hash[CC_SHA256_DIGEST_LENGTH];
-    (void) CC_SHA256( [data bytes], (CC_LONG)[data length], hash );
-    return ( [NSData dataWithBytes: hash length: CC_SHA256_DIGEST_LENGTH] );
-}
-
-+ (NSData *)sha1HashFromData:(NSData *)data {
-    //使用对应的CC_SHA1,CC_SHA256,CC_SHA384,CC_SHA512的长度分别是20,32,48,64
-    unsigned char hash[CC_SHA1_DIGEST_LENGTH];
-    //使用对应的CC_SHA256,CC_SHA384,CC_SHA512
-    (void) CC_SHA1([data bytes], (CC_LONG)[data length], hash);
-    return ( [NSData dataWithBytes: hash length: CC_SHA1_DIGEST_LENGTH] );
-}
-
-
-+ (NSData *)stringToByteFromString:(NSString *)string {
-    NSString *hexString=[[string uppercaseString] stringByReplacingOccurrencesOfString:@" " withString:@""];
-    if ([hexString length]%2!=0) {
-        return nil;
-    }
-    Byte tempbyt[1]={0};
-    NSMutableData* bytes=[NSMutableData data];
-    for(int i=0;i<[hexString length];i++) {
-        unichar hex_char1 = [hexString characterAtIndex:i]; ////两位16进制数中的第一位(高位*16)
-        int int_ch1;
-        if(hex_char1 >= '0' && hex_char1 <='9') {
-            int_ch1 = (hex_char1-48)*16;   //// 0 的Ascll - 48
-        } else if(hex_char1 >= 'A' && hex_char1 <='F') {
-            int_ch1 = (hex_char1-55)*16; //// A 的Ascll - 65
-        } else {
-            return nil;
-        }
-        
-        i++;
-        
-        unichar hex_char2 = [hexString characterAtIndex:i]; ///两位16进制数中的第二位(低位)
-        int int_ch2;
-        if(hex_char2 >= '0' && hex_char2 <='9') {
-            int_ch2 = (hex_char2-48); //// 0 的Ascll - 48
-        } else if(hex_char2 >= 'A' && hex_char2 <='F') {
-            int_ch2 = hex_char2-55; //// A 的Ascll - 65
-        } else {
-            return nil;
-        }
-        
-        tempbyt[0] = int_ch1+int_ch2;  ///将转化后的数放入Byte数组里
-        [bytes appendBytes:tempbyt length:1];
-    }
-    return bytes;
 }
 
 + (NSString *)base64encodeFromString:(NSString *)string {

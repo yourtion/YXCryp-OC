@@ -18,30 +18,27 @@ FOUNDATION_EXPORT const unsigned char YXCrypVersionString[];
 
 @interface YXCryp : NSObject
 
+// AES256
+
 /**
- *  加密 NSData
+ *  AES256 加密 NSData
  *
  *  @param key  秘钥
  *
  *  @return 加密结果
  */
-+ (NSData *)encryptData:(NSData *)data WithKey:(NSString *)key;
++ (NSData *)encryptData:(NSData *)data AES256WithKey:(NSString *)key;
 
 /**
- *  解密 NSData
+ *  AES256 解密 NSData
  *
  *  @param key 秘钥
  *
  *  @return 解密结果
  */
-+ (NSData *)decryptData:(NSData *)data WithKey:(NSString *)key;
++ (NSData *)decryptData:(NSData *)data AES256WithKey:(NSString *)key;
 
-/**
- *  NSData 编码成 Base64 字符串
- *
- *  @return Base64 字符串
- */
-+ (NSString *)base64StringFromData:(NSData *)data;
+// 哈希
 
 /**
  *  SHA256 哈希计算
@@ -57,6 +54,8 @@ FOUNDATION_EXPORT const unsigned char YXCrypVersionString[];
 */
 + (NSData *)sha1HashFromData:(NSData *)data;
 
+// HEX
+
 /**
  *  NSData 转换 HEX 字符串
  *
@@ -65,21 +64,30 @@ FOUNDATION_EXPORT const unsigned char YXCrypVersionString[];
 + (NSString *)byteToStringFromData:(NSData *)data;
 
 /**
- *  字符串 Base64 编码
- *
- *  @return  Base64 编码结果
- */
-+ (NSString *)base64encodeFromString:(NSString *)string;
-
-/**
  *  HEX 字符串转换 NSData
  *
  *  @return Data数据
  */
 + (NSData *)stringToByteFromString:(NSString *)string;
 
+// Base64
+
 /**
- *  Base64 转换为 NSData
+ *  NSData 编码成 Base64 字符串
+ *
+ *  @return Base64 字符串
+ */
++ (NSString *)base64StringFromData:(NSData *)data;
+
+/**
+ *  NSString 编码成 Base64 字符串
+ *
+ *  @return  Base64 编码结果
+ */
++ (NSString *)base64encodeFromString:(NSString *)string;
+
+/**
+ *  Base64 字符串解码为 NSData
  *
  *  @return Data数据
  */
