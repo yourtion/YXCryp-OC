@@ -74,7 +74,7 @@ static char YXCbase64[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0
         return  nil;
     }
     
-    NSData *result = [self _runCryptor: cryptor withData:data result: &status];
+    NSData *result = [YXCryp _runCryptor: cryptor withData:data result: &status];
     if ((result == nil) && (error != NULL)) {
         *error = status;
     }
@@ -89,7 +89,7 @@ static char YXCbase64[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0
 + (NSData *)_decryptData:(NSData *)data AES256WithKeyData:(NSData *)key{
     CCCryptorStatus status = kCCSuccess;
     CCCryptorRef cryptor = NULL;
-    CCCryptorStatus * error;
+    CCCryptorStatus * error = NULL;
     NSParameterAssert([key isKindOfClass: [NSData class]]);
     
     status = CCCryptorCreate(kCCDecrypt,
@@ -108,7 +108,7 @@ static char YXCbase64[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0
         return nil;
     }
     
-    NSData *result = [self _runCryptor: cryptor withData:data result: &status];
+    NSData *result = [YXCryp _runCryptor: cryptor withData:data result: &status];
     if ((result == nil) && (error != NULL)){
         *error = status;
     }
@@ -316,7 +316,7 @@ static char YXCbase64[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0
     const unsigned char *tempcstring;
     NSMutableData *theData;
     
-    if (self == nil) {
+    if (string == nil) {
         return [NSData data];
     }
     
