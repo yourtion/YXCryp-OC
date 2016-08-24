@@ -55,7 +55,7 @@ static char YXCbase64[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0
 + (NSData *)_encryptData:(NSData *)data AES256WithKeyData:(NSData *)key {
     CCCryptorStatus status = kCCSuccess;
     CCCryptorRef cryptor = NULL;
-    CCCryptorStatus *error;
+    CCCryptorStatus *error = NULL;
     NSParameterAssert([key isKindOfClass: [NSData class]]);
     
     status = CCCryptorCreate(kCCEncrypt,
@@ -137,6 +137,18 @@ static char YXCbase64[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0
 
 + (NSString *)sha1HashStringFromData:(NSData *)data {
     return [YXCryp byteToStringFromData:[YXCryp sha1HashFromData:data]];
+}
+
++ (NSData *)md5HashFromData:(NSData *)data {
+    //使用对应的CC_SHA1,CC_SHA256,CC_SHA384,CC_SHA512的长度分别是20,32,48,64
+    unsigned char hash[CC_MD5_DIGEST_LENGTH];
+    //使用对应的CC_SHA256,CC_SHA384,CC_SHA512
+    (void) CC_MD5([data bytes], (CC_LONG)[data length], hash);
+    return ( [NSData dataWithBytes: hash length: CC_MD5_DIGEST_LENGTH] );
+}
+
++ (NSString *)md5HashStringFromData:(NSData *)data {
+    return [YXCryp byteToStringFromData:[YXCryp md5HashFromData:data]];
 }
 
 + (NSString *)byteToStringFromData:(NSData *)data  {

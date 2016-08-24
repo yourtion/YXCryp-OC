@@ -19,6 +19,7 @@ static NSString *TEST_KEY = @"123456";
 static NSString *TEST_STRING = @"Yourtion";
 static NSString *TEST_STRING_BASE64 = @"WW91cnRpb24=";
 static NSString *TEST_STRING_HEX = @"596f757274696f6e";
+static NSString *TEST_STRING_MD5 = @"222278980f6da7dcce8000091603a434";
 static NSString *TEST_STRING_SHA1 = @"13ab3dc8bac77382174cd40c09634a06afd5d8f9";
 static NSString *TEST_STRING_SHA256 = @"dc7f60dfbdc17b16936e50da5641e868264972b0cd327a4efb1ab1f9eeeac29e";
 
@@ -75,6 +76,21 @@ static NSString *TEST_STRING_SHA256 = @"dc7f60dfbdc17b16936e50da5641e868264972b0
     
     NSString *result1 = [YXCryp sha1HashStringFromData:stringData];
     XCTAssertEqualObjects(result1, TEST_STRING_SHA1);
+}
+
+/**
+ *  MD5 哈希计算
+ */
+- (void)testMd5HashFromData {
+    NSData *stringData = [TEST_STRING dataUsingEncoding:NSUTF8StringEncoding];
+    
+    NSData *sha1 = [YXCryp md5HashFromData:stringData];
+    
+    NSString *result = [YXCryp byteToStringFromData:sha1];
+    XCTAssertEqualObjects(result, TEST_STRING_MD5);
+    
+    NSString *result1 = [YXCryp md5HashStringFromData:stringData];
+    XCTAssertEqualObjects(result1, TEST_STRING_MD5);
 }
 
 /**

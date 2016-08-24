@@ -68,6 +68,19 @@ FOUNDATION_EXPORT const unsigned char YXCrypVersionString[];
  */
 + (NSString *)sha1HashStringFromData:(NSData *)data;
 
+/**
+ *  MD5 哈希计算
+ *
+ *  @return MD5结果
+ */
++ (NSData *)md5HashFromData:(NSData *)data;
+
+/**
+ *  MD5 哈希计算
+ *
+ *  @return MD5结果
+ */
++ (NSString *)md5HashStringFromData:(NSData *)data;
 
 // HEX
 
