@@ -57,6 +57,9 @@ static NSString *TEST_STRING_SHA256 = @"dc7f60dfbdc17b16936e50da5641e868264972b0
     
     NSString *result = [YXCryp byteToStringFromData:sha256];
     XCTAssertEqualObjects(result, TEST_STRING_SHA256);
+    
+    NSString *result1 = [YXCryp sha256HashStringFromData:stringData];
+    XCTAssertEqualObjects(result1, TEST_STRING_SHA256);
 }
 
 /**
@@ -69,6 +72,9 @@ static NSString *TEST_STRING_SHA256 = @"dc7f60dfbdc17b16936e50da5641e868264972b0
     
     NSString *result = [YXCryp byteToStringFromData:sha1];
     XCTAssertEqualObjects(result, TEST_STRING_SHA1);
+    
+    NSString *result1 = [YXCryp sha1HashStringFromData:stringData];
+    XCTAssertEqualObjects(result1, TEST_STRING_SHA1);
 }
 
 /**

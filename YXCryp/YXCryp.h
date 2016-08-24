@@ -48,11 +48,26 @@ FOUNDATION_EXPORT const unsigned char YXCrypVersionString[];
 + (NSData *)sha256HashFromData:(NSData *)data;
 
 /**
+ *  SHA256 哈希计算
+ *
+ *  @return SHA256结果
+ */
++ (NSString *)sha256HashStringFromData:(NSData *)data;
+
+/**
  *  SHA1 哈希计算
  *
  *  @return SHA1结果
 */
 + (NSData *)sha1HashFromData:(NSData *)data;
+
+/**
+ *  SHA1 哈希计算
+ *
+ *  @return SHA1结果
+ */
++ (NSString *)sha1HashStringFromData:(NSData *)data;
+
 
 // HEX
 

@@ -123,12 +123,20 @@ static char YXCbase64[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0
     return ( [NSData dataWithBytes: hash length: CC_SHA256_DIGEST_LENGTH] );
 }
 
++ (NSString *)sha256HashStringFromData:(NSData *)data {
+    return [YXCryp byteToStringFromData:[YXCryp sha256HashFromData:data]];
+}
+
 + (NSData *)sha1HashFromData:(NSData *)data {
     //使用对应的CC_SHA1,CC_SHA256,CC_SHA384,CC_SHA512的长度分别是20,32,48,64
     unsigned char hash[CC_SHA1_DIGEST_LENGTH];
     //使用对应的CC_SHA256,CC_SHA384,CC_SHA512
     (void) CC_SHA1([data bytes], (CC_LONG)[data length], hash);
     return ( [NSData dataWithBytes: hash length: CC_SHA1_DIGEST_LENGTH] );
+}
+
++ (NSString *)sha1HashStringFromData:(NSData *)data {
+    return [YXCryp byteToStringFromData:[YXCryp sha1HashFromData:data]];
 }
 
 + (NSString *)byteToStringFromData:(NSData *)data  {
